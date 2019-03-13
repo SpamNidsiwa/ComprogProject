@@ -1,6 +1,8 @@
 # depslib dependency file v1.0
-1514140586 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
+1552498865 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
 	<SFML/Graphics.hpp>
+	<iostream>
+	"Titi.h"
 
 1525812018 d:\project\cmu cpe\comprog 261102\project\games\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -410,4 +412,6 @@
 	<SFML/Graphics/PrimitiveType.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
+
+1552498787 d:\project\cmu cpe\comprog 261102\project\games\mygames\titi.h
 
