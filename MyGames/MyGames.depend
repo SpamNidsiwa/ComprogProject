@@ -1,7 +1,11 @@
 # depslib dependency file v1.0
-1552498865 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
+1552624138 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
 	<SFML/Graphics.hpp>
-	<iostream>
+	<string>
+	"James.h"
+	"NestZ.h"
+	"Pound.h"
+	"Billy.h"
 	"Titi.h"
 
 1525812018 d:\project\cmu cpe\comprog 261102\project\games\sfml-2.5.1\include\sfml\graphics.hpp
@@ -413,5 +417,13 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1552498787 d:\project\cmu cpe\comprog 261102\project\games\mygames\titi.h
+1552533894 d:\project\cmu cpe\comprog 261102\project\games\mygames\titi.h
+
+1552533892 d:\project\cmu cpe\comprog 261102\project\games\mygames\james.h
+
+1552623839 d:\project\cmu cpe\comprog 261102\project\games\mygames\nestz.h
+
+1552533893 d:\project\cmu cpe\comprog 261102\project\games\mygames\pound.h
+
+1552533891 d:\project\cmu cpe\comprog 261102\project\games\mygames\billy.h
 

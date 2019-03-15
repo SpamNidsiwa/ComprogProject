@@ -1,6 +1,6 @@
 #ifndef NESTZ_H
 #define NESTZ_H
-void test(int a,int b){
-    a *= b;
+void mainMenu(){
+
 }
 #endif // NESTZ_H
