@@ -52,13 +52,13 @@ int exp_cal(int numbermonster){
     }
 }
 
-int monster_phase(){
+char monster_phase(){
     int monsterchoice = rand()%3+1;
     char Choice[3] = {"hammer","Scissors","Paper"}
     return Choice[monsterchoice];
 }
 
-int player_phase(){
+char player_phase(){
     char Choice[3] = {"hammer","Scissors","Paper"}
     int playerchoice;
     cout << "Please select your attack\n";
