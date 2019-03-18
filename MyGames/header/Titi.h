@@ -67,8 +67,8 @@ char player_phase(){
     return Choice[playerchoice];
 }
 
-void action_phase (char monsterchoosed ,char playerchoosed ){
-    int phase = 0; //0=player 1=monster
+void action_phase (char monsterchoosed ,char playerchoosed ,int phasenumber ){
+    //0=player 1=monster
     if(phase == 0){
         phase = 1 ;
         if(playerchoosed == "hammer" && monsterchoosed == "Scissors"){
@@ -92,9 +92,9 @@ void action_phase (char monsterchoosed ,char playerchoosed ){
         else{
             //แก้atkในภายหลัง
         }
+        break;
     }
     if(phase == 1){
-        phase = 0;
         if(playerchoosed == "Scissors" && monsterchoosed == "hammer"){
             //แก้atkในภายหลัง
         }
@@ -116,6 +116,7 @@ void action_phase (char monsterchoosed ,char playerchoosed ){
         else{
             //แก้atkในภายหลัง
         }
+        break;
     }
 }
 
