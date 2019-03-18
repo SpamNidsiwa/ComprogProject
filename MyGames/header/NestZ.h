@@ -7,55 +7,59 @@ using namespace sf;
 
 class Game{
     public:
+        //initGameWindow
         Game();
         int windowWidth;
         int windowHeight;
-        int menuCharacterSize;
         const string GameName = "MyGame";
         RenderWindow *gameWindow;
         Event sfEvent;
-        Vector2f mousePos;
 
-        void render();
-        void mainMenu();
         void run();
+        void initWindow();
         void update();
         void updateSfmlEvent();
-        void updateMousePos();
+        void render();
+
+        //Menu
+        Vector2i mousePosView;
+        Vector2f mousePos;
+        int menuCharacterSize;
+        Font menuFont;
+        Text play;
+        Text setting;
+        Text quit;
+
+        void drawMenu();
+        void getMousePos();
         void updateButton();
-        void initWindow();
+
 };
 
 Game::Game(){
     menuCharacterSize = 24;
     windowWidth = 1200;
     windowHeight = 800;
-    this->initWindow();
+    initWindow();
 }
 
 void Game::initWindow(){
-    this->gameWindow = new RenderWindow(VideoMode(this->windowWidth,this->windowHeight),this->GameName,Style::Close);
+    gameWindow = new RenderWindow(VideoMode(windowWidth,windowHeight),GameName,Style::Close);
     this->gameWindow->setVerticalSyncEnabled(true);
 }
 
 void Game::render(){
         this->gameWindow->clear();
-        mainMenu();
+        drawMenu();
         this->gameWindow->display();
 }
 
-void Game::mainMenu(){
-    Font menuFont;
-    Text play;
-    Text setting;
-    Text quit;
-
+void Game::drawMenu(){
     menuFont.loadFromFile("font/8-BIT WONDER.TTF");
 
     play.setFont(menuFont);
     play.setString("PLAY");
     play.setCharacterSize(menuCharacterSize);
-    play.setFillColor(Color::White);
     play.setPosition(windowWidth/2.0,windowHeight/2.0);
 
     setting.setFont(menuFont);
@@ -73,31 +77,35 @@ void Game::mainMenu(){
 
 void Game::run(){
     while(this->gameWindow->isOpen()){
-        this->update();
-        this->render();
+        update();
+        render();
     }
 }
 
 void Game::update(){
-    this->updateSfmlEvent();
+    updateSfmlEvent();
+    getMousePos();
+    updateButton();
 }
 
 void Game::updateSfmlEvent(){
-    while (this->gameWindow->pollEvent(this->sfEvent))
+    while (this->gameWindow->pollEvent(sfEvent))
         {
-            if (this->sfEvent.type == Event::Closed){
+            if (sfEvent.type == Event::Closed){
                 this->gameWindow->close();
             }
         }
 }
 
-void Game::updateMousePos(){
-    //mousePos = Mouse::getPosition(*gameWindow);
+void Game::getMousePos(){
+    mousePosView = Mouse::getPosition(*this->gameWindow);
+    mousePos = this->gameWindow->mapPixelToCoords(mousePosView);
 }
 
 void Game::updateButton(){
-    /*if(play.getLocalBounds().contains(mousePos)){
-
-    }*/
+    if(play.getGlobalBounds().contains(mousePos)){
+        play.setFillColor(Color::Red);
+    }
+    else play.setFillColor(Color::White);
 }
 #endif // NESTZ_H
