@@ -86,7 +86,6 @@ void Game::update(){
     updateSfmlEvent();
     //Menu
     updateMousePos();
-    updateButton();
 }
 
 void Game::updateSfmlEvent(){
@@ -99,6 +98,8 @@ void Game::updateSfmlEvent(){
 }
 
 void Game::drawMenu(){
+    updateButton();
+
     menuButton[0].setString("PLAY");
     setButton(menuButton[0],0);
 
@@ -129,7 +130,7 @@ void Game::setButton(Text &button, int index){
     button.setLetterSpacing(1.5);
     button.setCharacterSize(menuCharacterSize);
     button.setOrigin(getButtonWidth(button)/2.0,getButtonHeight(button)/2.0);
-    button.setPosition(windowWidth/2.0,(windowHeight/2.0 + index*90) + 20);
+    button.setPosition(windowWidth/2.0,(windowHeight/2.0 + index*90) + 25);
 }
 
 void Game::updateMousePos(){
