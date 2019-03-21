@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1553099530 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
+1553142620 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
 	"header/James.h"
 	"header/NestZ.h"
 	"header/Pound.h"
@@ -446,9 +446,10 @@
 
 1552533892 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\james.h
 
-1553140741 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz.h
+1553160421 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz.h
 	<SFML/Graphics.hpp>
 	<string>
+	<iostream>
 
 1552533893 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\pound.h
 
