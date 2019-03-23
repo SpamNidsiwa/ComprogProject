@@ -20,6 +20,7 @@ class Game{
         void updateSfmlEvent();
         void render();
         enum States {Menu, ChoosePlayers, ChooseCharacters, Setting};
+        bool checkMouseClick();
         //Menu
         double getButtonWidth(Text);
         double getButtonHeight(Text);
@@ -34,7 +35,6 @@ class Game{
         void setChoosePlayersButton(Text &, int);
         void initChoosePlayersVariables();
         void updateChoosePlayersButton();
-        void checkPlayersChooseClick(int);
         //ChooseCharacters
         double getSpriteWidth(Sprite);
         double getSpriteHeight(Sprite);
@@ -52,6 +52,7 @@ class Game{
         Texture menuBGTexture;
         Sprite menuBGSprite;
         //Window
+        bool MouseReleased;
         int windowWidth;
         int windowHeight;
         const string GameName = "MyGame";
@@ -83,6 +84,7 @@ void Game::initVariables(){
 void Game::initWindow(){
     gameWindow = new RenderWindow(VideoMode(windowWidth,windowHeight),GameName,Style::Close);
     this->gameWindow->setVerticalSyncEnabled(true);
+    this->gameWindow->setKeyRepeatEnabled(false);
 }
 
 void Game::initWindowVariables(){
@@ -90,6 +92,7 @@ void Game::initWindowVariables(){
     gameWindow = NULL;
     windowWidth = 1280;
     windowHeight = 720;
+    MouseReleased = true;
 }
 
 void Game::render(){
@@ -184,24 +187,31 @@ void Game::updateMenuButton(){
     for(int i = 0;i < 3;i++){
         if(menuButton[i].getGlobalBounds().contains(mousePos)){
             menuButton[i].setFillColor(Color::Red);
-            checkMouseClick(i);
+            if(checkMouseClick()){
+                switch(i){
+                    case 0: //play
+                        state.push(ChoosePlayers);
+                        break;
+                    case 1: //setting
+                        state.push(Setting);
+                        break;
+                    case 2: //quit
+                        this->gameWindow->close();
+                }
+            }
         }
         else menuButton[i].setFillColor(Color::Black);
     }
 }
 
-void Game::checkMouseClick(int index){
-    if(Mouse::isButtonPressed(Mouse::Left)){
-        switch(index){
-            case 0: //play
-                state.push(ChoosePlayers);
-                break;
-            case 1: //setting
-                state.push(Setting);
-                break;
-            case 2: //quit
-                this->gameWindow->close();
-        }
+bool Game::checkMouseClick(){
+    if(Mouse::isButtonPressed(Mouse::Left) && MouseReleased){
+        MouseReleased = false;
+        return true;
+    }
+    else if(!(Mouse::isButtonPressed(Mouse::Left))){
+        MouseReleased = true;
+        return false;
     }
 }
 
@@ -237,25 +247,21 @@ void Game::updateChoosePlayersButton(){
     for(int i = 0;i < 3;i++){
         if(chooseButton[i].getGlobalBounds().contains(mousePos)){
             chooseButton[i].setFillColor(Color::Red);
-            checkPlayersChooseClick(i);
+            if(checkMouseClick()){
+                switch(i){
+                    case 0: //2 players
+                        players = 2;
+                        break;
+                    case 1: //3 players
+                        players = 3;
+                        break;
+                    case 2: //4 players
+                        players = 4;
+                }
+                state.push(ChooseCharacters);
+            }
         }
         else chooseButton[i].setFillColor(Color::Black);
-    }
-}
-
-void Game::checkPlayersChooseClick(int index){
-    if(Mouse::isButtonPressed(Mouse::Left)){
-        switch(index){
-            case 0: //2 players
-                players = 2;
-                break;
-            case 1: //3 players
-                players = 3;
-                break;
-            case 2: //4 players
-                players = 4;
-        }
-        state.push(ChooseCharacters);
     }
 }
 
