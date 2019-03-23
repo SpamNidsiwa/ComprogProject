@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
-1553142620 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
+1553326861 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\main.cpp
 	"header/James.h"
-	"header/NestZ.h"
+	"header/NestZ_Game.h"
 	"header/Pound.h"
 	"header/Billy.h"
 	"header/Titi.h"
@@ -446,7 +446,7 @@
 
 1552533892 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\james.h
 
-1553183939 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz.h
+1553322489 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz.h
 	<SFML/Graphics.hpp>
 	<string>
 	<iostream>
@@ -470,4 +470,20 @@
 
 1552637205 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\source\game.cpp
 	"Game.h"
+
+1553334308 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz_game.h
+	<SFML/Graphics.hpp>
+	<string>
+	<iostream>
+	<stack>
+
+1553322960 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz_menu.h
+
+1553326252 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz_menu.cpp
+
+1553326828 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz_chooseplayers.cpp
+
+1553326476 source:d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz_chooseplayers.cpp
+
+1553326037 d:\project\cmu cpe\comprog 261102\project\games\mygames\header\nestz_chooseplayers.h
 
